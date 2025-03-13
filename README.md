@@ -1,129 +1,40 @@
+### 🔍 Similarity Search on Text Data using FAISS
 
-# venv
+**📌 Overview:** Text data can be converted into embeddings using models like Word2Vec, TF-IDF, or BERT. These embeddings can be indexed in FAISS for fast similarity search.
 
-## Overview
-`venv` is an automated virtual environment setup tool designed to streamline development across Windows, Linux, and macOS. It ensures dependencies are managed efficiently and integrates seamlessly with VS Code.
+**📖 Step-by-step Guide:**
 
-## 🖼 Screenshots
-![Virtual environment activation](img/screenshot.png)
+1. **Data Preprocessing**: First, you need to collect your text data. This could be in the form of documents, articles, or any other textual data. Ensure that each document is preprocessed properly by removing stop words (common words like 'the', 'and', 'is'), punctuation, and converting all text to lowercase for consistency.
 
-## Features
-- **Cross-platform compatibility**: Supports Windows (`.bat`, `.ps1`), Linux (`.sh`), and macOS.
-- **Automated environment setup**: Detects Python installation, creates, and activates a virtual environment.
-- **Dependency management**: Installs packages from `requirements.txt` and ensures `pip` is up-to-date.
-- **VS Code integration**: Includes a `.code-workspace` file for streamlined project management.
+2. **Tokenization**: Tokenize your text into individual words or subwords. This will help you break down the text into smaller manageable pieces.
 
-## Prerequisites
-- **Python 3.6+** installed.
-- **VS Code (optional)** for an optimized development experience.
+3. **Vectorization**: To make text data suitable for similarity search using FAISS, you need to convert it into vector form. One popular method is using Word2Vec or BERT embeddings. These methods convert words into high-dimensional vectors that capture semantic meaning.
 
-## Installation and Setup
-### Windows
-#### Using Command Prompt:
-```cmd
-cd path/to/venv
-activate_project.bat
-```
-#### Using PowerShell:
-```powershell
-cd path/to/venv
-.\activate_project.ps1
-```
+   For Word2Vec, you can use Gensim library in Python:
+   ```python
+   from gensim.models import Word2Vec
+   model = Word2Vec(sentences=corpus, vector_size=100)  # Adjust vector_size to your requirement
+   ```
 
-### Linux/macOS
-```bash
-cd path/to/venv
-chmod +x activate_project.sh
-./activate_project.sh
-```
+4. **Indexing**: After vectorizing your data, you can create an index using FAISS library. The index is a data structure that allows efficient similarity search. There are several types of indices available in FAISS, but for text data, usually the `FlatL2` or `IVFClassifier` indices are used.
 
-## Cloning the Repository
-Ensure Git is installed:
-```bash
-git --version
-```
-Clone the repository:
-```bash
-git clone https://github.com/TamerOnLine/venv.git
-```
-For SSH access:
-```bash
-git clone git@github.com:TamerOnLine/venv.git
-```
-Navigate to the project directory:
-```bash
-cd venv
-```
+   Here's an example of creating an index with FlatL2:
+   ```python
+   from faiss import StandardGpuResources, IndexFlatL2
 
-## Setting Up the Virtual Environment
-Run the activation script for your OS:
-#### Windows (Command Prompt):
-```cmd
-activate_project.bat
-```
-#### Windows (PowerShell):
-```powershell
-.\activate_project.ps1
-```
-#### Linux/macOS:
-```bash
-chmod +x activate_project.sh
-./activate_project.sh
-```
+   resources = StandardGpuResources()
+   index = IndexFlatL2(vector_dim=100, metric_type="L2")  # Adjust vector_dim to your vector size
+   index.train(data)  # data is your vectorized text data
+   index.save('index.faiss')
+   ```
 
-## Installing Dependencies
-After activating the virtual environment:
-```bash
-pip install -r requirements.txt
-```
+5. **Searching**: To perform a search, you can load the previously saved index and query with new vectors:
+   ```python
+   index = IndexFlatL2.load('index.faiss', resources=resources)
+   query_vector = model.wv['new_query']  # Replace 'new_query' with your actual query
+   topk_indices, distances = index.search(query_vector, k=5)  # Search top 5 similar documents
+   ```
+   The `topk_indices` will contain the indices of the most similar documents in your original dataset, and `distances` will contain the L2 distance between the query vector and each of these vectors.
 
-## File Structure
-```
-venv/
-├── .github/                 # GitHub workflows and CI/CD
-├── .pytest_cache/           # Pytest cache for test runs
-├── img/                     # Image assets (if applicable)
-├── src/                     # Source code
-├── tests/                   # Test scripts
-├── venv/                    # Virtual environment folder
-├── .env                     # Environment variables
-├── .gitignore               # Git ignore rules
-├── activate_project.bat     # Windows CMD script
-├── activate_project.ps1     # Windows PowerShell script
-├── activate_project.sh      # Linux/macOS Bash script
-├── LICENSE                  # License file
-├── README.md                # Documentation
-├── requirements.txt         # List of dependencies
-├── runtime.txt              # Python runtime version
-└── workspace.code-workspace # VS Code workspace file
-```
-
-## Usage
-### Activating the Virtual Environment
-Once activated, you should see a modified prompt:
-```bash
-(venv) user@machine:~/venv$
-```
-
-### Installing Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### Deactivating the Virtual Environment
-To exit:
-```bash
-deactivate
-```
-
-## Troubleshooting
-- **Python not found**: Ensure Python 3.6+ is installed and added to the system path.
-- **Activation failure**: Delete the `venv` folder and rerun the activation script.
-- **Permission issues (Linux/macOS)**: Use `chmod +x activate_project.sh` to grant execution permissions.
-
-## Contribution
-Submit pull requests or report issues on the [GitHub repository](https://github.com/TamerOnLine/venv).
-
-## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
+---
+*Generated by AI*
