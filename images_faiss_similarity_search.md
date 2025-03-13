@@ -4,31 +4,29 @@
 
 **📖 Step-by-step Guide:**
 
-1. **Data Preprocessing:**
-   - Collect your image dataset. Make sure it is properly labeled with the appropriate tags or categories.
-   - Resize all images to have the same dimensions (e.g., 256x256 pixels) for consistency. This can be done using libraries such as PIL or OpenCV in Python.
-   - Normalize the pixel values of each image, usually by converting them to grayscale and scaling them between 0 and 1.
+1. **Data Collection and Preparation:**
+First, you need to collect the image data that you want to work with. This could be from any source, such as your own images or a dataset like ImageNet. Ensure that the images are appropriately labeled for the task at hand.
 
-2. **Vectorization:**
-   - To convert images into vectors that FAISS can work with, you will need a pre-trained deep learning model such as VGG16 or ResNet50. These models have been trained on large image datasets (e.g., ImageNet) and can extract features from your images.
-   - Use Keras or TensorFlow to load the pre-trained model and extract features from your images. This will give you a vector representation of each image that can be used for similarity search.
+2. **Image Normalization:**
+Before vectorizing the images, it's essential to normalize them for consistency. This can be done by resizing all images to have the same dimensions, and then normalizing pixel values to a range (usually 0-1 or -1-1).
 
-3. **Indexing:**
-   - Once you have your vectors, you can create an index using FAISS. The index allows you to efficiently find the most similar vectors to a given query vector.
-   - Choose the appropriate index type based on your use case. For example, if you have a large number of images and need fast search times, you might want to use the IVF (Indexing via Hashing) or FlatL2 (approximate nearest neighbors) indexes.
-   - Load your vector data into the chosen index using the FAISS API. This will create an index that can be queried for similar vectors.
+3. **Choose a Pretrained Model:**
+To convert images into vectors, you'll need a pretrained model such as ResNet, VGG, or Inception. These models are already trained on large image datasets and can extract features from your images. You can use libraries like TensorFlow or PyTorch to load these models.
 
-4. **Searching:**
-   - To search for similar images, simply load your query image and extract its features as described in step 2.
-   - Query the index with this vector to find the most similar images in your dataset. You can control the number of results returned and the search precision by adjusting parameters such as `n` (number of nearest neighbors) and `metric_type` (e.g., Euclidean or Cosine distance).
+4. **Feature Extraction:**
+Extract the features for each image using the chosen pretrained model. This process is often called 'feature extraction' or 'pre-training'. The features extracted are usually high-dimensional vectors that capture information about the image content (e.g., edges, shapes, colors).
 
-5. **Training an Adaptive Index:**
-   - If your dataset is dynamic, meaning new images are added over time, you can train an adaptive index using FAISS. This allows you to update the index incrementally without having to rebuild it from scratch.
-   - To do this, first create a standard index as described above and then convert it into an adaptive index using the FAISS API.
-   - When new images are added, extract their feature vectors and add them to the index using the `add` method. The index will automatically learn which vectors are similar to each other and adjust its internal structure accordingly.
+5. **Vector Quantization:**
+To make the search process more efficient, we'll quantize these high-dimensional vectors into lower-dimensional vectors using a technique called Vector Quantization (VQ) or codebook learning. This step is essential when working with FAISS as it allows for faster retrieval of similar images.
 
-6. **Evaluating Performance:**
-   - To evaluate the performance of your system, you can use metrics such as Recall@K (the proportion of relevant items retrieved in the top K results) or Mean Average Precision (the average precision for all queries). These can help you understand how well your similarity search is performing and identify areas for improvement.
+6. **Building the Index:**
+With the quantized vectors, you can now build your index using FAISS's functions. The index data structure will allow for efficient similarity search based on cosine similarity between vectors. You can choose from various index types provided by FAISS, such as FlatL2 or IVFClustering.
+
+7. **Searching:**
+Once the index is built, you can perform similarity searches using the `search` function provided by FAISS. This function will return a list of image IDs (or indices) that are most similar to the given query image based on cosine similarity.
+
+8. **Post-Processing:**
+Finally, after receiving the search results, you may want to post-process them to get the actual images or display them in a meaningful way. This step depends on your specific use case and requirements.
 
 ---
 *Generated by AI*
