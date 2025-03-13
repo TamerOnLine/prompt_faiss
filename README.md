@@ -44,7 +44,7 @@ FAISS Similarity Search Guides
 
 
 ---
-[🤖 AI Embeddings Similarity Search](ai embeddings_faiss_similarity_search.md)
+[AI Embeddings Similarity Search](ai embeddings_faiss_similarity_search.md)
 
 ## 🚀 How to Run
 
