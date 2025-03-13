@@ -33,10 +33,7 @@ This project focuses on **similarity search using FAISS**, a powerful library by
 │   ├── activate_project.ps1  (Windows - PowerShell)
 
 ```
-FAISS Similarity Search Guides
-
-
-
+# FAISS Similarity Search Guides
 ---
 
 ### [🔍 Text Similarity Search](text_faiss_similarity_search.md)
