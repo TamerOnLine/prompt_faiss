@@ -42,7 +42,7 @@ FAISS Similarity Search Guides
 [📊 Tabular Similarity Search](tabular_faiss_similarity_search.md)
 [🗺️ Geospatial Similarity Search](geospatial_faiss_similarity_search.md)
 
-[🤖 AI Embeddings Similarity Search](ai_embeddings_faiss_similarity_search.md)
+[🤖 AI Embeddings Similarity Search](ai embeddings_faiss_similarity_search.md)
 ---
 
 ## 🚀 How to Run
