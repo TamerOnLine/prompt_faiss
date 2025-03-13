@@ -39,15 +39,15 @@ FAISS Similarity Search Guides
 
 ---
 
-[🔍 Text Similarity Search](FAISS Similarity Search Guides/text_faiss_similarity_search.md)
-[📸 Image Similarity Search](FAISS Similarity Search Guides/images_faiss_similarity_search.md)
-[🎵 Audio Similarity Search](FAISS Similarity Search Guides/audio_faiss_similarity_search.md)
-[🎥 Video Similarity Search](FAISS Similarity Search Guides/video_faiss_similarity_search.md)
-[🏥 Medical Similarity Search](FAISS Similarity Search Guides/medical_faiss_similarity_search.md)
-[📊 Tabular Similarity Search](FAISS Similarity Search Guides/tabular_faiss_similarity_search.md)
-[🗺️ Geospatial Similarity Search](FAISS Similarity Search Guides/geospatial_faiss_similarity_search.md)
+[🔍 Text Similarity Search](text_faiss_similarity_search.md)
+[📸 Image Similarity Search](images_faiss_similarity_search.md)
+[🎵 Audio Similarity Search](audio_faiss_similarity_search.md)
+[🎥 Video Similarity Search](video_faiss_similarity_search.md)
+[🏥 Medical Similarity Search](medical_faiss_similarity_search.md)
+[📊 Tabular Similarity Search](tabular_faiss_similarity_search.md)
+[🗺️ Geospatial Similarity Search](geospatial_faiss_similarity_search.md)
 
-[AI Embeddings Similarity Search](ai embeddings_faiss_similarity_search.md)
+[🤖 AI Embeddings Similarity Search](ai_embeddings_faiss_similarity_search.md)
 
 ## 🚀 How to Run
 
