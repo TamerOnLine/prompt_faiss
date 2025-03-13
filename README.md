@@ -31,6 +31,8 @@ This project focuses on **similarity search using FAISS**, a powerful library by
 │   ├── activate_project.sh  (Linux & Mac)
 │   ├── activate_project.bat  (Windows - CMD)
 │   ├── activate_project.ps1  (Windows - PowerShell)
+
+```
 ├── FAISS Similarity Search Guides
 │   ├── [🔍 Text Similarity Search](text_faiss_similarity_search.md)
 │   ├── [📸 Image Similarity Search](images_faiss_similarity_search.md)
@@ -40,8 +42,6 @@ This project focuses on **similarity search using FAISS**, a powerful library by
 │   ├── [📊 Tabular Similarity Search](tabular_faiss_similarity_search.md)
 │   ├── [🗺️ Geospatial Similarity Search](geospatial_faiss_similarity_search.md)
 │   ├── [🤖 AI Embeddings Similarity Search](ai_embeddings_faiss_similarity_search.md)
-```
-
 ---
 
 ## 🚀 How to Run
