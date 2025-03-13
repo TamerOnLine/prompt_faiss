@@ -1,4 +1,4 @@
-# 🔍 FAISS Similarity Search Project
+Z# 🔍 FAISS Similarity Search Project
 
 ## 📌 Introduction
 This project focuses on **similarity search using FAISS**, a powerful library by **Facebook AI** that enables fast search in high-dimensional data.
@@ -34,7 +34,7 @@ This project focuses on **similarity search using FAISS**, a powerful library by
 
 ```
 FAISS Similarity Search Guides
-[🔍 Text Similarity Search](text_faiss_similarity_search.md)
+[🔍 Text Similarity Search](FAISS Similarity Search Guides/text_faiss_similarity_search.md)
 [📸 Image Similarity Search](images_faiss_similarity_search.md)
 [🎵 Audio Similarity Search](audio_faiss_similarity_search.md)
 [🎥 Video Similarity Search](video_faiss_similarity_search.md)
