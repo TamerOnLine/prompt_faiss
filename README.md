@@ -33,15 +33,16 @@ This project focuses on **similarity search using FAISS**, a powerful library by
 │   ├── activate_project.ps1  (Windows - PowerShell)
 
 ```
-├── FAISS Similarity Search Guides
-│   ├── [🔍 Text Similarity Search](text_faiss_similarity_search.md)
-│   ├── [📸 Image Similarity Search](images_faiss_similarity_search.md)
-│   ├── [🎵 Audio Similarity Search](audio_faiss_similarity_search.md)
-│   ├── [🎥 Video Similarity Search](video_faiss_similarity_search.md)
-│   ├── [🏥 Medical Similarity Search](medical_faiss_similarity_search.md)
-│   ├── [📊 Tabular Similarity Search](tabular_faiss_similarity_search.md)
-│   ├── [🗺️ Geospatial Similarity Search](geospatial_faiss_similarity_search.md)
-│   ├── [🤖 AI Embeddings Similarity Search](ai_embeddings_faiss_similarity_search.md)
+FAISS Similarity Search Guides
+[🔍 Text Similarity Search](text_faiss_similarity_search.md)
+[📸 Image Similarity Search](images_faiss_similarity_search.md)
+[🎵 Audio Similarity Search](audio_faiss_similarity_search.md)
+[🎥 Video Similarity Search](video_faiss_similarity_search.md)
+[🏥 Medical Similarity Search](medical_faiss_similarity_search.md)
+[📊 Tabular Similarity Search](tabular_faiss_similarity_search.md)
+[🗺️ Geospatial Similarity Search](geospatial_faiss_similarity_search.md)
+
+[🤖 AI Embeddings Similarity Search](ai_embeddings_faiss_similarity_search.md)
 ---
 
 ## 🚀 How to Run
